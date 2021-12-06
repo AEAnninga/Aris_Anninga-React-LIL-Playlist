@@ -187,22 +187,29 @@ class PlayList extends Component {
       doubleFilteredList 
     } = this.state
 
+    const style = {
+      position: 'sticky',
+      top: 0
+    }
+
     return (
       <section className='container-fluid'>
-        <nav className='navbar navbar-default navbar-fixed-top pageNav'>
-
-        <SongForm
-          handleChange={head => this.handleChange(head)}
-          handleSubmit={event => this.handleSubmit(event)}
-          genres={genres}
-        />
-        <Filter 
-          genres={genres}
-          handleGenres={event => this.handleGenres(event)}
-          ratings={ratings}
-          handleRating={event => this.handleRating(event)}
-          handleFilters={event => this.handleFilters(event)}
-        />
+        <nav 
+          className='pageNav navbar navbar-default navbar-fixed-top'
+          style={style} 
+        >
+          <SongForm
+            handleChange={head => this.handleChange(head)}
+            handleSubmit={event => this.handleSubmit(event)}
+            genres={genres}
+          />
+          <Filter 
+            genres={genres}
+            handleGenres={event => this.handleGenres(event)}
+            ratings={ratings}
+            handleRating={event => this.handleRating(event)}
+            handleFilters={event => this.handleFilters(event)}
+          />
         </nav>
         <Table 
           tableHeaders={tableHeaders}

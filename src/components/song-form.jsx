@@ -12,7 +12,7 @@ const SongForm = props => {
                 <input required className='col rounded-3 m-2 fw-bold' type='text'  placeholder='artist' onChange={() => handleChange('artist')}></input>
                 {/* <section className='col m-2'> */}
                     <select required className='col rounded-3 m-2 fw-bold text-secondary' name='genres' id='genre-select' onChange={() => handleChange('genre')} >
-                        <option value="" className='fw-bold'> --Choose genre--</option>
+                        <option value="" className='fw-bold'>Choose Genre</option>
                         {genres.map(genre => <option className='fw-bold' key={genre.id} value={genre.name}>{genre.name}</option>)}
                     </select>
                 {/* </section> */}
