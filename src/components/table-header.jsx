@@ -2,19 +2,23 @@ import React from 'react';
 
 
 const TableHeader = (props) => {
-    const { tableHeader } = props
-
+    const { 
+        tableHeaders,
+        handleSort,
+        renderSortIcon
+    } = props
     return ( 
         <thead>
-            <tr >
+            <tr>
                 <th/>
-                <th scope='col'>{tableHeader.title}</th>
-                <th scope='col'>{tableHeader.artist}</th>
-                <th scope='col'>{tableHeader.genre}</th>
-                <th scope='col'>{tableHeader.rating}</th>
+                {tableHeaders.map(column => (
+                    <th style={{cursor:'pointer'}} key={column.path} onClick={() => handleSort(column.path)} scope='col'>
+                        {column.label}
+                        {renderSortIcon(column)}
+                    </th>
+                ))}
             </tr>
         </thead>
-
     );
 }
  

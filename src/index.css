@@ -5,9 +5,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url('../src/images/playlist1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.pageNav {
+  position: sticky;
+  top: 0;
+  background: rgba(128, 128, 128, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  
 }

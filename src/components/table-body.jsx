@@ -2,23 +2,36 @@ import React from 'react'
 import Rating from './rating'
 
 const TableBody = (props) => {
-    const { songList, handleDelete, selectedGenre, selectedGenreList } = props
-    console.log('Selected genre: ', selectedGenre)
+    const { 
+        songList, 
+        handleDelete, 
+        genreFilter,
+        ratingFilter,
+        genreList, 
+        ratingList, 
+        doubleFilteredList,
+    } = props
+
     let list
-    if (!selectedGenre) {
+
+    if (!genreFilter.selected && !ratingFilter.selected) {
         list = songList
-    } else if (selectedGenre) {
-        list = selectedGenreList
+    } else if (genreFilter.selected && !ratingFilter.selected) {
+        list = genreList
+    } else if (ratingFilter.selected && !genreFilter.selected) {
+        list = ratingList
+    } else if (genreFilter.selected && ratingFilter.selected) {
+        list = doubleFilteredList
     }
 
     return (
-        <tbody className='col'>
+        <tbody  className='col'>
             {list.map(song => {
                 let index = songList.indexOf(song)
                 let id = song.id
                 return (
-                    <tr key={song.id}>
-                        <th scope='row'>{index + 1}</th>
+                    <tr key={song.id} className='p-2'>
+                        <th scope='col'>{index + 1}</th>
                         <td>{song.title}</td>
                         <td>{song.artist}</td>
                         <td>{song.genre}</td>
