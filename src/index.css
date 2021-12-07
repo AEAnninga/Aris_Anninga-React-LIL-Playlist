@@ -20,10 +20,51 @@ code {
 .pageNav {
   position: sticky;
   top: 0;
-  background: rgba(128, 128, 128, 0.5);
+  background: rgba(136, 185, 235, 0.664);
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 25px;
   margin-top: 25px;
   
 }
+
+.playlist tr:last-child > th, .playlist tr:last-child > td {
+  border-bottom: none;
+}
+
+.routeNav {
+  width: 33vw;
+}
+
+ul.routeNav {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  column-gap: 25px;
+}
+.routeNav-item > a {
+  color: whitesmoke;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.routeNav-item > a:hover {
+  color: white;
+  text-shadow: 0px 0px 2px white;
+}
+
+a.activePage {
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.about {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 25px;
+  background: rgba(136, 185, 235, 0.664);
+  color:whitesmoke;
+}
+

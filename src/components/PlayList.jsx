@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react'
-import SongForm from './components/song-form'
-import Table from './components/table'
-import Filter from './components/filter'
+import React, { Component} from 'react'
+import SongForm from './song-form'
+import Table from './table'
+import Filter from './filter'
 import _ from 'lodash'
-import { exampleSongList, addSong, deleteSong} from './data/song-list'
+import { exampleSongList } from '../data/song-list'
 
 class PlayList extends Component {
   constructor() {
@@ -15,7 +15,6 @@ class PlayList extends Component {
       doubleFilteredList: [],
       genreFilter: {selected: false, genre: ''},
       ratingFilter: {selected: false, rating: ''},
-      doubleFilter: {selected: false, genre:'', rating: ''},
       idCount: 0,
       form: {
         title: '',
@@ -31,11 +30,11 @@ class PlayList extends Component {
       ],
       sortColumn: {path: 'title', order: 'desc', sorted: false},
       genres: [
-        {name: 'Pop', selected: false, id: 1},
-        {name: 'Rock', selected: false, id: 2},
-        {name: 'Classical', selected: false, id: 3},
-        {name: 'Jazz', selected: false, id: 4},
-        {name: 'other', selected: false, id: 5},
+        {name: 'Pop', id: 1},
+        {name: 'Rock', id: 2},
+        {name: 'Classical', id: 3},
+        {name: 'Jazz', id: 4},
+        {name: 'other', id: 5},
       ],
       ratings: [
         {stars: 1, id: 1},
@@ -53,7 +52,7 @@ class PlayList extends Component {
     this.setState({form: newForm})
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     const { songList, idCount } = this.state
     let newSongList = songList
     let newId = idCount + 1
@@ -65,18 +64,16 @@ class PlayList extends Component {
       rating: event.target[3].value,
     }
     newSongList.push(song)
-    addSong(song)
     this.setState({songList: newSongList, idCount: newId})
     event.preventDefault()
     let form = document.getElementById('form')
-    // form.reset()
+    // form.reset() 
   }
 
-  handleDelete = (id) => {
+  handleDelete = id => {
     const { songList } = this.state
     let newSongList = songList.filter(song => song.id !== id)
     this.setState({songList: newSongList})
-    deleteSong(id)
   }
 
   handleGenres = event => {
@@ -91,7 +88,7 @@ class PlayList extends Component {
         genreList: newGenreList,
         doubleFilteredList: newDoubleFilteredList // sets state of doubleFilteredList needed in tablebody
       })
-    }else if (newGenre ) {
+    } else if (newGenre ) {
       this.setState({
         genreFilter: {selected: true, genre: newGenre},
         genreList: newGenreList
@@ -182,8 +179,7 @@ class PlayList extends Component {
       genreList, 
       ratings,
       ratingFilter,
-      ratingList, 
-      doubleFilter,
+      ratingList,
       doubleFilteredList 
     } = this.state
 
@@ -196,7 +192,7 @@ class PlayList extends Component {
       <section className='container-fluid'>
         <nav 
           className='pageNav navbar navbar-default navbar-fixed-top'
-          style={style} 
+          style={style} // vanwege bootstrap inline style gebruikt
         >
           <SongForm
             handleChange={head => this.handleChange(head)}
@@ -222,7 +218,6 @@ class PlayList extends Component {
           genreList={genreList}
           ratingFilter={ratingFilter}
           ratingList={ratingList}
-          doubleFilter={doubleFilter}
           doubleFilteredList={doubleFilteredList}
         />
       </section>

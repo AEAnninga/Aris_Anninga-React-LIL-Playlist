@@ -49,14 +49,3 @@
         rating: 1,
     }
 ]
-
-export const addSong = song => {
-    exampleSongList.push(song)
-}
-
-export const deleteSong = id => {
-    let newSongList = exampleSongList.filter(song => song.id !== id)
-    exampleSongList = newSongList
-}
-
-

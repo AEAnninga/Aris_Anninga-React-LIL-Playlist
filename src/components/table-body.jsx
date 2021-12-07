@@ -1,13 +1,13 @@
 import React from 'react'
 import Rating from './rating'
 
-const TableBody = (props) => {
+const TableBody = props => {
     const { 
         songList, 
         handleDelete, 
         genreFilter,
-        ratingFilter,
         genreList, 
+        ratingFilter,
         ratingList, 
         doubleFilteredList,
     } = props
@@ -25,7 +25,7 @@ const TableBody = (props) => {
     }
 
     return (
-        <tbody  className='col'>
+        <tbody  className='col playlist'>
             {list.map(song => {
                 let index = songList.indexOf(song)
                 let id = song.id
@@ -44,10 +44,9 @@ const TableBody = (props) => {
                         </td>
                     </tr>
                 )
-            })}    
+            })}   
         </tbody> 
     )
 }
- 
 
 export default TableBody;

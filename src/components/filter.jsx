@@ -1,7 +1,12 @@
 import React from 'react'
 
 const Filter = (props) => {
-    const { genres, handleGenres, ratings, handleRating } = props
+    const { 
+        genres, 
+        handleGenres, 
+        ratings, 
+        handleRating 
+    } = props
 
     return ( 
         <section>

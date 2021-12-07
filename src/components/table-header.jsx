@@ -1,12 +1,12 @@
 import React from 'react';
 
-
-const TableHeader = (props) => {
+const TableHeader = props => {
     const { 
         tableHeaders,
         handleSort,
         renderSortIcon
     } = props
+    
     return ( 
         <thead>
             <tr>

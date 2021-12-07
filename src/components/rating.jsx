@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Rating = (props) => {
+const Rating = props => {
     const { song } = props
     let icon = []
     for (let i = 1; i <= song.rating; i++) {

@@ -5,7 +5,6 @@ import TableBody from './table-body'
 const Table = props => {
     const { 
         tableHeaders, 
-        sortColumn, 
         songList, 
         handleDelete,
         handleSort,
@@ -14,7 +13,6 @@ const Table = props => {
         genreList,
         ratingFilter,
         ratingList,
-        doubleFilter,
         doubleFilteredList 
     } = props
 
@@ -22,7 +20,6 @@ const Table = props => {
         <table className='container-fluid table bg-info rounded-3 text-white'>
             <TableHeader
                 tableHeaders={tableHeaders}
-                sortColumn={sortColumn}
                 handleSort={handleSort}
                 renderSortIcon={renderSortIcon}
             />
@@ -33,9 +30,7 @@ const Table = props => {
                 genreList={genreList}
                 ratingFilter={ratingFilter}
                 ratingList={ratingList}
-                doubleFilter={doubleFilter}
                 doubleFilteredList={doubleFilteredList}
-                sortColumn={sortColumn}
             />
         </table>
      );

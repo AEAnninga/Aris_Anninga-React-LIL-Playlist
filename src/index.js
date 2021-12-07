@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import PlayList from './PlayList';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css'
+import { BrowserRouter } from 'react-router-dom'
+import Container from './Container'
+
 
 ReactDOM.render(
-    <PlayList />,
+  <BrowserRouter>
+    <Container />
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
